@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{69C3E850-4EF2-4D5D-8C9A-D9D13655BFAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{D28002E5-D80E-41D0-AD8E-150D43BB14A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69C3E850-4EF2-4D5D-8C9A-D9D13655BFAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C3E850-4EF2-4D5D-8C9A-D9D13655BFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C3E850-4EF2-4D5D-8C9A-D9D13655BFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C3E850-4EF2-4D5D-8C9A-D9D13655BFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28002E5-D80E-41D0-AD8E-150D43BB14A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28002E5-D80E-41D0-AD8E-150D43BB14A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28002E5-D80E-41D0-AD8E-150D43BB14A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28002E5-D80E-41D0-AD8E-150D43BB14A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
