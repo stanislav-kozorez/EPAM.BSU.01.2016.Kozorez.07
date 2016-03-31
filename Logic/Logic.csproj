@@ -47,10 +47,9 @@
     <Compile Include="Task3\CustomQueue.cs" />
     <Compile Include="Task3\QueueIsEmptyException.cs" />
     <Compile Include="Task4\BinarySearch.cs" />
+    <Compile Include="Task5\Sort.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Task5\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
