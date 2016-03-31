@@ -63,11 +63,11 @@ namespace ConsoleUI
                 Console.Write("{0} ", item);
 
             Console.WriteLine();
-            
+
             IEnumerator<int> iterator = queue.GetEnumerator();
             try
             {
-                while(iterator.MoveNext())
+                while (iterator.MoveNext())
                 {
                     Console.Write("{0} ", iterator.Current);
                 }
