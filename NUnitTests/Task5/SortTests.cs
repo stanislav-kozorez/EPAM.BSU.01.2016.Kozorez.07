@@ -17,7 +17,7 @@ namespace NUnitTests.Task5
             int[] initialIntArr = { 2, 7, -23, 5, 79, 5 };
             int[] expectedIntArr = { -23, 2, 5, 5, 7, 79 };
 
-            Sort.BubbleSort(initialIntArr);
+            Sort.BubbleSort(initialIntArr, Comparer<int>.Default);
             CollectionAssert.AreEqual(expectedIntArr, initialIntArr);
         }
 
@@ -27,12 +27,12 @@ namespace NUnitTests.Task5
             string[] initialStringArr = { "aqqqq", "bcd", "032", "wer", "sdf", "bac" };
             string[] expectedStringArr = { "032", "aqqqq", "bac", "bcd", "sdf", "wer" };
 
-            Sort.BubbleSort(initialStringArr);
+            Sort.BubbleSort(initialStringArr, Comparer<string>.Default);
             CollectionAssert.AreEqual(expectedStringArr, initialStringArr);
         }
 
         [Test]
-        public void BubbleSortFirstClassTest()
+        public void BubbleSortTestClassTest()
         {
             TestClass[] initialTestClassArr = { new TestClass(4), new TestClass(-34), new TestClass(2) };
             TestClass[] expectedTestClassArr = { new TestClass(-34), new TestClass(2), new TestClass(4) };
@@ -40,17 +40,6 @@ namespace NUnitTests.Task5
             Sort.BubbleSort(initialTestClassArr, new Comparator());
             CollectionAssert.AreEqual(expectedTestClassArr, initialTestClassArr);
         }
-
-        [Test, ExpectedException(typeof(ArgumentException))]
-        public void BubbleSortFirstClassReturnsArgumentExceptionTest()
-        {
-            TestClass[] initialTestClassArr = { new TestClass(4), new TestClass(-34), new TestClass(2) };
-            TestClass[] expectedTestClassArr = { new TestClass(-34), new TestClass(2), new TestClass(4) };
-          
-            Sort.BubbleSort(initialTestClassArr);
-            CollectionAssert.AreEqual(expectedTestClassArr, initialTestClassArr);
-        }
-
     }
 
     public class TestClass: IEquatable<TestClass>

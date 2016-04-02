@@ -17,9 +17,15 @@ namespace Logic.Task1
         {
             for (uint i = 0; i < seconds; i++)
                 Thread.Sleep(1000);
-            EventHandler<AlarmClockEventArgs> eventHandler = OnAlarm;
+                   
             AlarmClockEventArgs args = new AlarmClockEventArgs(seconds);
-            eventHandler?.Invoke(this, args);
+            Alarm(args);
+        }
+
+        private void Alarm(AlarmClockEventArgs e)
+        {
+            EventHandler<AlarmClockEventArgs> eventHandler = OnAlarm;
+            eventHandler?.Invoke(this, e);
         }
     }
 

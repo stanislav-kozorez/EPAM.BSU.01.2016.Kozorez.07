@@ -14,6 +14,8 @@ namespace Logic.Task2
             ulong lastValue = 1;
             ulong newValue;
 
+            if (valuesCount <= 0)
+                throw new ArgumentException("Negative or zero values are not allowed");
             yield return 1;
             if (valuesCount < 2)
                 yield break;

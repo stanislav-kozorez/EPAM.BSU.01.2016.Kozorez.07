@@ -43,7 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task1\AlarmClock.cs" />
     <Compile Include="Task2\Fibonacci.cs" />
-    <Compile Include="Task3\CustomEnumerator.cs" />
     <Compile Include="Task3\CustomQueue.cs" />
     <Compile Include="Task3\QueueIsEmptyException.cs" />
     <Compile Include="Task4\BinarySearch.cs" />

@@ -21,8 +21,10 @@ namespace ConsoleUI
             alarm.OnAlarm += second.Method;
             alarm.OnAlarm += second.Method;
             alarm.OnAlarm += first.Method;
-
             alarm.Start();
+            alarm.OnAlarm -= second.Method;
+            alarm.Start();
+
             Console.WriteLine();
 
             #endregion

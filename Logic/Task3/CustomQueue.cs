@@ -10,6 +10,7 @@ namespace Logic.Task3
         private int head;
         private int tail;
         private int size;
+        private int version;
 
         private const int DEFAULT_CAPACITY = 4;
 
@@ -27,6 +28,7 @@ namespace Logic.Task3
             head = 0;
             tail = 0;
             size = 0;
+            version = 0;
         }
 
         public int Count { get { return size; } }
@@ -44,6 +46,7 @@ namespace Logic.Task3
             container[tail] = item;
             tail = (tail + 1 == container.Length) ? 0 : tail + 1;
             size++;
+            version++;
         }
 
         public T Dequeue()
@@ -55,6 +58,7 @@ namespace Logic.Task3
             container[head] = default(T);
             head = (head + 1) == container.Length ? 0 : head + 1;
             size--;
+            version++;
             return result;
         }
 
@@ -67,7 +71,7 @@ namespace Logic.Task3
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new CustomEnumerator<T>(container, head, size);
+            return new CustomEnumerator<T>(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -92,6 +96,85 @@ namespace Logic.Task3
             container = newContainer;
             head = 0;
             tail = size;
+        }
+
+        struct CustomEnumerator<T> : IEnumerator<T>
+        {
+            private int size;
+            private int head;
+            private int initialHead;
+            private int initialSize;
+            private bool isDisposed;
+            private CustomQueue<T> queue;
+            private T current;
+            private int version;
+
+            public CustomEnumerator(CustomQueue<T> queue)
+            {
+                this.queue = queue;
+                this.size = queue.size;
+                this.head = queue.head - 1;
+                this.initialHead = this.head - 1;
+                this.initialSize = queue.size;
+                this.isDisposed = false;
+                this.version = queue.version;
+                this.current = default(T);
+            }
+
+            public T Current
+            {
+                get
+                {
+                    if (!isDisposed)
+                    {
+                        if(head  != initialHead)
+                            current = queue.container[head];
+                        return current;
+                    }
+                    else
+                        throw new ObjectDisposedException("Disposed");
+                }
+            }
+
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return Current;
+                }
+            }
+
+            public void Dispose()
+            {
+                isDisposed = true;
+            }
+
+            public bool MoveNext()
+            {
+                if (isDisposed)
+                    throw new ObjectDisposedException("Disposed");
+                if (version != queue.version)
+                    throw new InvalidOperationException("Version");
+                if (size == 0)
+                    return false;
+                else
+                {
+                    head = (head + 1 == queue.container.Length) ? 0 : head + 1;
+                    size--;
+                    return true;
+                }
+            }
+
+            public void Reset()
+            {
+                if (isDisposed)
+                    throw new ObjectDisposedException("Disposed");
+                if (version != queue.version)
+                    throw new InvalidOperationException("Version");
+                head = initialHead;
+                size = initialSize;
+                current = default(T);
+            }
         }
     }
 }
